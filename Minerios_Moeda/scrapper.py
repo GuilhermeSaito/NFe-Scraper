@@ -15,16 +15,13 @@ driver = webdriver.Chrome(
     options = options
     )
 
-
 # navigate to the Google homepage
 driver.get("https://br.investing.com/commodities/copper-historical-data?cid=959211")
 
-dropdown_menu = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]")))
-dropdown_menu.click()
+dropdown_menu = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]"))).click()
 
 # Wait for the options to be visible and click the desired option
-option = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]/div/div[3]")))
-option.click()
+option = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.XPATH, "//*[@id='__next']/div[2]/div[2]/div[2]/div[1]/div[2]/div[2]/div[1]/div[2]//div[text()='Monthly']"))).click()
 
 table = driver.find_element(By.XPATH, "/html/body/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[3]/table")
 
